@@ -20,6 +20,10 @@ class SCRViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(SCRViewController.keyboardWillBeHidden),
             name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
